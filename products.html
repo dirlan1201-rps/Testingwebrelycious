@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rylicious - Products</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Rylicious</h1>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link active">Products</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+    <!-- GALERI FOTO PRODUK (SLIDER) -->
+    <section class="section">
+      <div class="container">
+        <h3 class="section-title">Galeri Produk</h3>
+
+        <div class="slider">
+          <div class="slides">
+            <img src="img/kuebaloklumer.jpg" alt="Kue Balok Lumer Rylicious" />
+            <img src="img/varianbaru.jpg" alt="Varian Baru Kue Balok" />
+            <img src="img/milk-rylicious.jpg" alt="Sticky Milk Rylicious" />
+          </div>
+
+          <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+          <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h2>Daftar Produk</h2>
+        <p>Pilih varian kue dan minuman favoritmu di Rylicious.</p>
+      </div>
+    </section>
+
+    <!-- DAFTAR PRODUK -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="grid">
+
+          <!-- Produk 1 -->
+          <div class="card">
+            <h3>Kue Balok Lumer</h3>
+            <p><strong>1 Box Isi 5</strong></p>
+            <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+              <li>Coklat Original – Rp 23.000</li>
+              <li>Pandan Original – Rp 23.000</li>
+              <li>Tiramisu Original – Rp 23.000</li>
+            </ul>
+          </div>
+
+          <!-- Produk 2 -->
+          <div class="card">
+            <h3>Varian Topping</h3>
+            <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+              <li>Keju – Rp 3.000</li>
+              <li>Oreo – Rp 3.000</li>
+              <li>Red Velvet – Rp 3.000</li>
+              <li>Milo – Rp 5.000</li>
+              <li>Almond – Rp 5.000</li>
+              <li>Kacang – Rp 5.000</li>
+            </ul>
+          </div>
+
+          <!-- Produk 3 -->
+          <div class="card">
+            <h3>Sticky Milk Rylicious</h3>
+            <p><strong>Varian Rasa (Rp 10.000 / cup)</strong></p>
+            <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+              <li>Thai Tea – Rp 10.000</li>
+              <li>Choco Royal – Rp 10.000</li>
+              <li>Choco Hazelnut – Rp 10.000</li>
+              <li>Vanilla Latte – Rp 10.000</li>
+              <li>Cappuccino – Rp 10.000</li>
+              <li>Dark Chocolate – Rp 10.000</li>
+              <li>Strawberry – Rp 10.000</li>
+              <li>Matcha Latte – Rp 10.000</li>
+              <li>Permen Karet – Rp 10.000</li>
+              <li>Durian – Rp 10.000</li>
+              <li>Red Velvet – Rp 10.000</li>
+              <li>Taro Latte – Rp 10.000</li>
+            </ul>
+            <p style="margin-top: 0.6rem;"><strong>+ Cream Cheese:</strong> Rp 2.000</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA PESAN -->
+    <section class="section">
+      <div class="container">
+        <p class="section-text">
+          Untuk pemesanan atau konsultasi varian rasa, silakan hubungi kami melalui WhatsApp.
+        </p>
+        <br />
+        <a 
+          href="https://wa.me/6285242639312?text=Halo%20Kak%2C%20saya%20ingin%20pesan%20produk%20Rylicious%20🍫"
+          class="btn-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          Pesan Sekarang via WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Tombol WA melayang -->
+  <a 
+    class="wa-float"
+    href="https://wa.me/6285242639312?text=Halo%20Kak%2C%20saya%20mau%20pesan%20produk%20Rylicious"
+    target="_blank"
+    rel="noopener"
+  >
+    WA
+  </a>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Rylicious - Kue Balok Lumer & Sticky Milk. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT MENU + SLIDER DITARUH DI BAWAH -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const siteNav = document.getElementById("siteNav");
+
+    menuToggle.addEventListener("click", () => {
+      siteNav.classList.toggle("open");
+      menuToggle.classList.toggle("open");
+    });
+
+    // SLIDER
+    let slideIndex = 0;
+    const slides = document.querySelector(".slides");
+    const totalSlides = slides.children.length;
+
+    function moveSlide(direction) {
+      slideIndex = (slideIndex + direction + totalSlides) % totalSlides;
+      slides.style.transform = "translateX(-" + (slideIndex * 100) + "%)";
+    }
+
+    // auto slide setiap 4 detik
+    setInterval(() => moveSlide(1), 4000);
+  </script>
+
+</body>
+</html>

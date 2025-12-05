@@ -1,0 +1,689 @@
+/* VARIABEL WARNA UTAMA */
+:root {
+  --accent: oklab(26.343% -0.00141 -0.00046);
+  --accent-soft: #fdecea;
+  --bg: #ffffff;
+  --bg-alt: #fafafa;
+  --text: #333333;
+  --muted: #777777;
+  --radius: 10px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* RESET SEDERHANA */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+
+  /* Tambahan efek gradasi pinggir */
+  background: 
+    radial-gradient(circle at top left, rgba(231, 76, 60, 0.2), transparent 70%),
+    radial-gradient(circle at top right, rgba(255, 165, 0, 0.15), transparent 70%),
+    radial-gradient(circle at bottom left, rgba(0, 128, 255, 0.15), transparent 70%),
+    radial-gradient(circle at bottom right, rgba(50, 205, 50, 0.15), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* HEADER / NAVBAR */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9, 239, 204, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+}
+
+.logo {
+  font-size: 1.3rem;
+  margin: 0;
+  color: var(--accent);
+}
+
+/* NAV DESKTOP */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s, font-weight 0.2s;
+  color: var(--muted);
+}
+
+.nav-link:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.nav-link.active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* TOMBOL MENU HP */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  margin: 4px 0;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* SECTION UMUM */
+.page-hero {
+  padding: 2.5rem 0 1.5rem;
+}
+
+.page-hero h2 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+}
+
+.page-hero p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.section {
+  padding: 1.8rem 0 2.4rem;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.section-text {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* GRID KARTU */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.card p {
+  margin: 0.2rem 0;
+}
+
+.price {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* CONTACT */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+}
+
+.contact-info p {
+  margin: 0.3rem 0;
+}
+
+.contact-form {
+  background: #fff;
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.contact-form label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin-top: 0.25rem;
+  font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+}
+
+/* BUTTONS */
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  box-shadow: 0 6px 16px rgba(231, 76, 60, 0.4);
+}
+
+.btn-primary:hover {
+  background: #c13c2f;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.wa-float {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  z-index: 200;
+}
+
+/* FOOTER */
+.site-footer {
+  padding: 1.2rem 0 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* RESPONSIVE (HP / TABLET) */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero h2 {
+    font-size: 1.6rem;
+  }
+
+  /* NAV JADI DROPDOWN */
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.6rem 1rem 0.7rem;
+    gap: 0.2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .site-nav.open {
+    max-height: 200px;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.45rem 0.6rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+}
+
+/* === SLIDER PRODUK === */
+.slider {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.slider button.prev,
+.slider button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider button.prev:hover,
+.slider button.next:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.slider button.prev { left: 10px; }
+.slider button.next { right: 10px; }
+
+@media (max-width: 600px) {
+  .slider button.prev, .slider button.next {
+    padding: 6px;
+  }
+}
+
+
+/* ====== SECTION GENERIC ====== */
+.section {
+  padding: 3.5rem 0;
+}
+
+.section-alt {
+  padding: 3.5rem 0;
+  background: linear-gradient(135deg, #fdfbff, #f5fffb);
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.section-text {
+  max-width: 720px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Supaya teks tengah saat layar kecil */
+@media (max-width: 768px) {
+  .section-title,
+  .section-text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ====== GRID KEUNGGULAN ====== */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ====== LIST VARIAN RASA ====== */
+.flavor-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.flavor-list li {
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Saat mobile, list di tengah */
+@media (max-width: 768px) {
+  .flavor-list {
+    justify-content: center;
+  }
+}
+
+/* ====== LANGKAH PEMESANAN ====== */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.step-item {
+  position: relative;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.7rem 1.75rem 1.6rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.step-number {
+  position: absolute;
+  top: 1.1rem;
+  left: 1.1rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(130deg, #00e8a5, #00c0ff);
+  color: #fff;
+}
+
+.step-item h4 {
+  margin-left: 2.8rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+.step-item p {
+  margin-top: 0.1rem;
+  margin-left: 0.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ====== (OPSIONAL) TOMBOL UTAMA JIKA BELUM ADA ====== */
+/* Kalau di file kamu sudah ada .btn-primary, bagian ini boleh di-skip */
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background: linear-gradient(130deg, #00e8a5, #00c0ff);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+  filter: brightness(1.03);
+}
+
+/*tambahan kode agar tampilan di hp tidak berantakan
+/* ================================
+   PERBAIKAN TAMPILAN MOBILE
+   Letakkan di PALING BAWAH style.css
+   ================================ */
+
+/* Tablet & HP (<= 768px) */
+@media (max-width: 768px) {
+
+  /* Ukuran font & jarak lebih nyaman di HP */
+  body {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 0 0.9rem;
+  }
+
+  /* Header supaya tidak sesak di HP */
+  .header-inner {
+    padding: 0.5rem 0;
+    gap: 0.6rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  /* Hero di tengah & lebih rapat */
+  .page-hero {
+    padding: 1.8rem 0 1.2rem;
+    text-align: center;
+  }
+
+  .page-hero h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .page-hero p {
+    font-size: 0.95rem;
+  }
+
+  .page-hero .btn-primary {
+    margin-top: 0.9rem;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* Section tidak terlalu tinggi di HP */
+  .section,
+  .section-alt {
+    padding: 2.2rem 0;
+  }
+
+  /* Semua grid jadi 1 kolom di HP */
+  .grid,
+  .feature-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .card,
+  .feature-card,
+  .step-item {
+    padding: 1.1rem 1.2rem;
+  }
+
+  /* Teks judul & paragraf di-tengah agar enak dibaca */
+  .section-title,
+  .section-text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Form contact full width, tidak terlalu lebar */
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .contact-form {
+    padding: 1rem;
+  }
+
+  /* Tombol WA mengambang sedikit naik supaya tidak nutup footer */
+  .wa-float {
+    right: 0.8rem;
+    bottom: 0.9rem;
+    width: 48px;
+    height: 48px;
+    font-size: 0.75rem;
+  }
+}
+
+/* HP kecil (<= 480px) */
+@media (max-width: 480px) {
+
+  .page-hero h2 {
+    font-size: 1.35rem;
+  }
+
+  .card,
+  .feature-card,
+  .step-item {
+    padding: 0.95rem 1rem;
+  }
+
+  /* Panah slider lebih kecil lagi */
+  .slider button.prev,
+  .slider button.next {
+    padding: 4px;
+  }
+
+  /* List varian rasa supaya rapi */
+  .flavor-list li {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.9rem;
+  }
+}

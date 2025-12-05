@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rylicious - Contact</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Rylicious</h1>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h2>Kontak & Pemesanan</h2>
+        <p>Silakan hubungi kami untuk pemesanan atau informasi lebih lanjut.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container contact-wrapper">
+        <div class="contact-info">
+          <p><strong>Alamat:</strong> Jl.Sultan Hasanuddin - Jln.Poros Enrekang</p>
+          <p><strong>WhatsApp:</strong> 0852-4263-9312</p>
+          <p><strong>Jam Operasional:</strong> 15.00 WITA – HABIS</p>
+          <br />
+          <a
+            href="https://wa.me/6285242639312?text=Halo%20Kak%2C%20saya%20mau%20pesan%20kue%20balok"
+            class="btn-outline"
+            target="_blank"
+            rel="noopener"
+          >
+            Chat via WhatsApp
+          </a>
+        </div>
+
+        <!-- FORM PESANAN -->
+        <form class="contact-form" id="orderForm" onsubmit="sendToWhatsApp(event)">
+          <label>
+            Nama
+            <input id="nama" type="text" placeholder="Nama lengkap" required />
+          </label>
+          <label>
+            Pesan
+            <textarea id="pesan" rows="4" placeholder="Tulis pertanyaan atau pesanan singkat" required></textarea>
+          </label>
+          <button class="btn-primary" type="submit">Kirim (via WhatsApp)</button>
+          <p class="form-note">
+            *Form ini akan membuka WhatsApp dengan pesan yang sudah terisi otomatis.
+          </p>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING WA BUTTON -->
+  <a 
+    class="wa-float"
+    href="https://wa.me/6285242639312?text=Halo%20Kak%2C%20saya%20datang%20dari%20halaman%20Contact%20Rylicious"
+    target="_blank"
+    rel="noopener"
+  >
+    WA
+  </a>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Rylicious - Kue Balok Lumer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DI PALING BAWAH -->
+  <script>
+    // Script menu HP
+    const menuToggle = document.getElementById("menuToggle");
+    const siteNav = document.getElementById("siteNav");
+
+    menuToggle.addEventListener("click", () => {
+      siteNav.classList.toggle("open");
+      menuToggle.classList.toggle("open");
+    });
+
+    // NOMOR WHATSAPP (format 62...)
+    const WA_NUMBER = "6285242639312";
+
+    function sendToWhatsApp(event) {
+      event.preventDefault(); // cegah reload halaman
+
+      const namaInput = document.getElementById("nama");
+      const pesanInput = document.getElementById("pesan");
+
+      const nama = namaInput.value.trim();
+      const pesan = pesanInput.value.trim();
+
+      if (!nama || !pesan) {
+        alert("Nama dan pesan tidak boleh kosong.");
+        return;
+      }
+
+      const text =
+        `Halo Kak, saya ${nama}.\n` +
+        `Saya ingin pesan / bertanya tentang kue Relycious.\n\n` +
+        `Detail pesan:\n${pesan}`;
+
+      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+
+      // Arahkan ke WhatsApp (app di HP / WhatsApp Web)
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
